@@ -6,7 +6,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>One Click - Escola de formação de Desenvolvedores</title>
-        <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="src/image/favicon.ico" />
         <!-- Font Awesome icons -->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
@@ -19,7 +19,7 @@
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
         
-        <link href="style/login.css" rel="stylesheet" />
+        <link href="src/style/cadastro.css" rel="stylesheet" />
 
     </head>
 
@@ -27,7 +27,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             <div class="container px-5">
-                <a class="navbar-brand" href="#page-top"><img class="logo" src="image/index-image/logo-menor-transparente.png" alt="logo one click" /> < ONE-Click /> </a>
+                <a class="navbar-brand" href="#page-top"><img class="logo" src="src/image/index-image/logo-menor-transparente.png" alt="logo one click" /> < ONE-Click /> </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
@@ -45,46 +45,64 @@
                 <div class="container px-5">
                     <div class="container">
                         <div class="row">
-                          <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                            <div class="card border-0 shadow rounded-3 my-5">
+                          <div class="col-lg-10 col-xl-9 mx-auto">
+                            <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+                              <div class="card-img-left d-none d-md-flex">
+                                <!-- Background image for card set in CSS! -->
+                              </div>
                               <div class="card-body p-4 p-sm-5">
-                                <h5 class="card-title text-center mb-5 fw-light fs-5">Entrar</h5>
+                                <h5 class="card-title text-center mb-5 fw-light fs-5">Cadastro</h5>
                                 <form>
+                    
                                   <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                    <label for="floatingInput">Email </label>
+                                    <input type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus>
+                                    <label for="floatingInputUsername">Usuário</label>
                                   </div>
+                    
+                                  <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com">
+                                    <label for="floatingInputEmail">Email</label>
+                                  </div>
+                    
+                                  <hr>
+                    
                                   <div class="form-floating mb-3">
                                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                                     <label for="floatingPassword">Senha</label>
                                   </div>
                     
-                                  <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                                    <label class="form-check-label" for="rememberPasswordCheck">
-                                      Lembrar Senha 
-                                    </label>
+                                  <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirm Password">
+                                    <label for="floatingPasswordConfirm">Confirme a  Senha</label>
                                   </div>
-                                  <div class="d-grid">
-                                    <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Entrar</button>
-                                  </div>
-                                  <hr class="my-4">
+                    
                                   <div class="d-grid mb-2">
-                                    <button class="btn btn-google btn-login text-uppercase fw-bold" type="submit">
+                                    <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Cadastro</button>
+                                  </div>
+                    
+                                  <a class="d-block text-center mt-2 small" href="#">já possui conta? Entrar</a>
+                    
+                                  <hr class="my-4">
+                    
+                                  <div class="d-grid mb-2">
+                                    <button class="btn btn-lg btn-google btn-login fw-bold text-uppercase" type="submit">
                                       <i class="fab fa-google me-2"></i> Entrar com Google
                                     </button>
                                   </div>
+                    
                                   <div class="d-grid">
-                                    <button class="btn btn-facebook btn-login text-uppercase fw-bold" type="submit">
+                                    <button class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase" type="submit">
                                       <i class="fab fa-facebook-f me-2"></i> Entrar com Facebook
                                     </button>
                                   </div>
+                    
                                 </form>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
+              
                 </div>
             </div>
             <div class="bg-circle-1 bg-circle"></div>
@@ -102,6 +120,6 @@
         <!-- Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- JavaScript-->
-        <script src="js/scripts.js"></script>
+        <script src="src/js/scripts.js"></script>
     </body>
 </html>
