@@ -1,5 +1,6 @@
 # -------------------- IMPORT --------------------
-from flask import Flask, Response, request, render_template
+from enum import unique
+from flask import Flask, Response, request
 from flask_sqlalchemy import SQLAlchemy
 import json
 
@@ -12,15 +13,15 @@ db = SQLAlchemy(app)
 
 
 class Users(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(50))
-    email = db.Column(db.String(40))
-    password = db.Column(db.String(40))
-    
+    __tablename__ = 'usuario'
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    name = db.Column(db.String(86), nullable=False)
+    email = db.Column(db.String(84), nullable=False, unique=True)
+    password = db.Column(db.String(128), nullable=False)
     def to_json(self):
             return {
             'id': self.id,
-            'nome': self.nome,
+            'nome': self.name,
             'email': self.email,
             'password': self.password
         }
