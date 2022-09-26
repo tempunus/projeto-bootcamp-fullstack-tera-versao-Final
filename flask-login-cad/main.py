@@ -5,10 +5,10 @@ from app.models import User
 
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
 
-@app.route('/registration', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         name = request.form['name']
@@ -19,7 +19,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-    return render_template('registration.html')
+    return render_template('register.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -33,7 +33,7 @@ def login():
             return redirect(url_for('login'))        
 
         login_user(user)
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
 
     return render_template('login.html')
 

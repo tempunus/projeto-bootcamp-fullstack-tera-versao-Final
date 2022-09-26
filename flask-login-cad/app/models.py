@@ -7,8 +7,8 @@ from flask_login import UserMixin
 def get_user(user_id):
     return User.query.filter_by(id=user_id).first()
 
-class Users(db.Model, UserMixin):
-    __tablename__ = 'usuario'
+class User(db.Model, UserMixin):
+    __tablename__ = 'users'
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     name = db.Column(db.String(86), nullable=False)
     email = db.Column(db.String(84), nullable=False, unique=True)
