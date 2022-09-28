@@ -1,15 +1,4 @@
 @charset "UTF-8";
-/*!
-* Start Bootstrap - One Page Wonder v6.0.5 (https://startbootstrap.com/theme/one-page-wonder)
-* Copyright 2013-2022 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-one-page-wonder/blob/master/LICENSE)
-*/
-/*!
- * Bootstrap v5.1.3 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -3057,14 +3046,14 @@ textarea.form-control-lg {
 }
 .btn-primary:disabled, .btn-primary.disabled {
   color: #fff;
-  background-color: #ee0979;
-  border-color: #ee0979;
+  background-color: #ff0052;
+  border-color: #ef0f7b;
 }
 
 .btn-secondary {
-  color: #000;
-  background-color: #ff6a00;
-  border-color: #ff6a00;
+  color: #fff;
+  background-color: #ff0052;
+  border-color: #ef0f7b;
 }
 .btn-secondary:hover {
   color: #000;
@@ -11382,4 +11371,17 @@ header.masthead .bg-circle-4 {
   header.masthead .masthead-content .masthead-subheading {
     font-size: 2rem;
   }
+}
+
+
+h5.mb-5{
+  color: #000 !important;
+}
+
+label.form-label {
+  color: #fff !important;
+}
+
+label{
+  color: #000 !important;
 }
