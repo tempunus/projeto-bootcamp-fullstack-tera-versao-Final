@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" courseContent="IE=edge">
+    <meta name="viewport" courseContent="width=device-width, initial-scale=1.0">
+    <title>Module 1: HTML</title>
+    <link rel="stylesheet" href="../src/style/coursePage.css">
+</head>
+<body>
+    
+    <main>
+        <section class="pagesProgress">
+            <header>
+                <h1>HTML</h1>
+            </header>
+            <nav>
+                |   
+                <a onclick="openPage('introduction','courseContent')">1 Introdução</a>|
+                <a onclick="openPage('basic','courseContent')">2 Básico</a> |
+                <a onclick="openPage('intermediary','courseContent')">3 intermediário</a> |
+                <a onclick="openPage('advanced','courseContent')">4 Avançado</a>
+            </nav>
+        </section>
+
+        
+        <section id="courseContent">
+            <div class="initialPage">
+            <h1>Voce está prestes a iniciar seu curso</h1>
+            <h3>procure um lugar confortével, pegue papel, caneta e bons estudos</h3>
+            <button class="btn-hover" onclick="openPage('introduction','courseContent')">INICIAR</button>
+            </div>
+        </section>
+
+        
+    </main>
+<script src="../src/js/coursePage.js"></script>    
+</body>
+</html>
