@@ -1,7 +1,7 @@
 function openPage(x, y) {
     var indice = x
     var target = y
-    var url = 'http://127.0.0.1:5555/app-flask/templates/courses/allCourses/html/' + indice + '.html'
+    var url = 'http://127.0.0.1:5555/web/courses/allCourses/html/' + indice + '.html'
    
 
     var xml = new XMLHttpRequest()
