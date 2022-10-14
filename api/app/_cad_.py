@@ -5,16 +5,15 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 
 app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:150803@localhost/cadastro'
+app.config,from_object('config')
 
 db = SQLAlchemy(app)
 
 
 class Users(db.Model):
-    __tablename__ = 'usuario'
+    __tablename__ = 'user'
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    username = db.column(db.String(86),nullable=False,)
     name = db.Column(db.String(86), nullable=False)
     email = db.Column(db.String(84), nullable=False, unique=True)
     password = db.Column(db.String(128), nullable=False)
@@ -27,7 +26,7 @@ class Users(db.Model):
         }
         
 # -------------------- CREAT --------------------
-@app.route("/users", methods=["POST"])
+@app.route("/user", methods=["POST"])
 def create_users():
     body = request.get_json()
 
