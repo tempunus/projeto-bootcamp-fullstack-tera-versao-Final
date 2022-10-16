@@ -1,7 +1,7 @@
 function openPage(x, y) {
     var indice = x
     var target = y
-    var url = 'https://tempunus.github.io/projeto-bootcamp-fullstack-tera-versao-Final/webcourses/allCourses/html/' + indice + '.html'
+    var url = 'https://tempunus.github.io/projeto-bootcamp-fullstack-tera-versao-Final/web/courses/allCourses/html/' + indice + '.html'
    
 
     var xml = new XMLHttpRequest()
@@ -29,7 +29,7 @@ function openPage(x, y) {
 
     next.addEventListener('click', () => {
         
-    var url = 'https://tempunus.github.io/projeto-bootcamp-fullstack-tera-versao-Final/webcourses/allCourses/html/' + currentActive + '.html'
+    var url = 'https://tempunus.github.io/projeto-bootcamp-fullstack-tera-versao-Final/web/courses/allCourses/html/' + currentActive + '.html'
    
 
     var xml = new XMLHttpRequest()
