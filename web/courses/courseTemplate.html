@@ -10,28 +10,49 @@
 <body>
     
     <main>
-        <section class="pagesProgress">
-            <header>
-                <h1>HTML</h1>
-            </header>
-            <nav>
+        <nav class="pagesProgress">
+            
+                <div class="container">
+                    <div class="progress-container">
+                    <div class="progress" id="progress"></div>
+                    <div class="circle active">0</div>
+                    <div class="circle" onclick="openPage('1','courseContent')">1</div>
+                    <div class="circle" onclick="openPage('2','courseContent')">2</div>
+                    <div class="circle" onclick="openPage('3','courseContent')">3</div>
+                    <div class="circle" onclick="openPage('4','courseContent')">4</div>
+
+
+                </div>
+               
+               
+            </div>
+           
+                <!--
                 |   
                 <a onclick="openPage('introduction','courseContent')">1 Introdução</a>|
                 <a onclick="openPage('basic','courseContent')">2 Básico</a> |
                 <a onclick="openPage('intermediary','courseContent')">3 intermediário</a> |
-                <a onclick="openPage('advanced','courseContent')">4 Avançado</a>
-            </nav>
-        </section>
+                <a onclick="openPage('advanced','courseContent')">4 Avançado</a>-->
+            
+            
+        </nav>
 
         
         <section id="courseContent">
             <div class="initialPage">
             <h1>Voce está prestes a iniciar seu curso</h1>
             <h3>procure um lugar confortével, pegue papel, caneta e bons estudos</h3>
-            <button class="btn-hover" onclick="openPage('introduction','courseContent')">INICIAR</button>
+           <!-- <button class="btn-hover" onclick="openPage('introduction','courseContent')">INICIAR</button>-->
             </div>
+           
         </section>
 
+
+       
+        <footer>
+            <button type="button" id="prev" class="btn-prev" onclick="window.location.href = '//localhost:5555/web/courses/modulesTemplate.html'">Voltar</button>
+            <button type="button" id="next" class="btn-hover" onclick="update(0)">Avançar</button>
+        </footer>
         
     </main>
 <script src="../src/js/coursePage.js"></script>    
