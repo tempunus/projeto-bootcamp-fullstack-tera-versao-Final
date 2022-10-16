@@ -25,6 +25,11 @@ h1 {
     padding-top: 30px;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 /* ===========progress bar=========*/
 .workload {
     display: flex;
