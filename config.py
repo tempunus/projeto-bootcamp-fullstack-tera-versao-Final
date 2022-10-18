@@ -1,5 +1,10 @@
+import os.path
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+
 DEBUG = True
 
-JSON_AS_ASCII = False
-SQLALCHEMY_TRACK_MODIFICATIONS= True
-SQLALCHEMY_DATABASE_URI= 'postgresql://postgres:150803@localhost/OneClick'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'storage.db')
+SQLALCHEMY_TRACK_MODIFICATIONS = True
+
+SECRET_KEY = 'chave-de-seguranca-bem-segura'
