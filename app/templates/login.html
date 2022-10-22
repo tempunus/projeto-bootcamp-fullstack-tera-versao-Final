@@ -1,45 +1,60 @@
 {% extends 'base.html' %}
-
-{% block title %}{{ super() }} - Login{% endblock %}
-
-{% block content %}
-    <div class="col-md-4 col-md-offset-4">
-    <h2>Login</h2>
-    <form action="" method="POST">
-        {{ form.csrf_token }}
-        <div class="form-group">
-            <label>Username</label>
-            {{ form.username(class="form-control", placeholder="seu_usuario") }}
-            {% if form.errors.username %}
-            <div class="alert alert-danger" role="alert">
-                <ul>
-                    {% for e in form.errors.username %}
-                        <li>{{ e }}</li>
-                    {% endfor %}
-                </ul>
+{% block login %}
+        <!-- Header-->
+        <header class="masthead text-center text-white">
+            <div class="masthead-content">
+                <div class="container px-5">
+                    <div class="container">
+                        <div class="row">
+                          <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                            <div class="card border-0 shadow rounded-3 my-5">
+                              <div class="card-body p-4 p-sm-5">
+                                <h5 class="card-title text-center mb-5 fw-light fs-5">Entrar</h5>
+                                <form action="" method="POST">
+                                  {{ form.csrf_token }}
+                                  <div class="form-floating mb-3">
+                                    {{ form.username(class="form-control", id="floatingInput", placeholder="Username")}}
+                                    <label for="floatingPassword">Usuário</label>                                   
+                                  </div>
+                                  <div class="form-floating mb-3">
+                                    {{ form.password(class="form-control", id="floatingPassword", placeholder="Senha")}}
+                                    <label for="floatingPassword">Senha</label>
+                                  </div>
+                    
+                                  <div class="form-check mb-3">
+                                    {{ form.remember_me}}
+                                    <label class="form-check-label" for="rememberPasswordCheck">
+                                      Lembrar Senha 
+                                    </label>
+                                  </div>
+                                  <div class="d-grid">
+                                    <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Entrar</button>
+                                  </div>
+                                  <hr class="my-4">
+                                  <div class="d-grid mb-2">
+                                    <button class="btn btn-google btn-login text-uppercase fw-bold" type="submit">
+                                      <i class="fab fa-google me-2"></i> Entrar com Google
+                                    </button>
+                                  </div>
+                                  <div class="d-grid">
+                                    <button class="btn btn-facebook btn-login text-uppercase fw-bold" type="submit">
+                                      <i class="fab fa-facebook-f me-2"></i> Entrar com Facebook
+                                    </button>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
             </div>
-            {% endif %}
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            {{ form.password(class="form-control") }} 
-            {% if form.errors.password %}
-            <div class="alert alert-danger" role="alert">
-                <ul>
-                    {% for e in form.errors.password %}
-                        <li>{{ e }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
-        </div>
-        <div class="checkbox">
-            <label>
-                {{ form.remember_me }} Remember me
-            </label>
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-    </div>
+            <div class="bg-circle-1 bg-circle"></div>
+            <div class="bg-circle-2 bg-circle"></div>
+            <div class="bg-circle-3 bg-circle"></div>
+            <div class="bg-circle-4 bg-circle"></div>
 
-{% endblock %}
+
+        </header>
+
+  {% endblock%}      

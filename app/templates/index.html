@@ -1,36 +1,68 @@
-{% extends 'base.html' %}
+    {% extends 'base.html' %}
+    {% block index %}
+        <!-- Header--> 
+        <header class="masthead text-center text-white vh-100">
+            <div class="masthead-content">
+                <div class="container px-5">
+                    <h1 class="masthead-heading mb-0">Aprenda a Programar de verdade.</h1>
+                    <h2 class="masthead-subheading mb-0">Experiência de educação centrada no aluno <p></p>com as tecnologias que realmente importam para o mercado de trabalho.</h2>
+                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Saiba Mais</a>
+                </div>
+            </div>
+            <div class="bg-circle-1 bg-circle"></div>
+            <div class="bg-circle-2 bg-circle"></div>
+            <div class="bg-circle-3 bg-circle"></div>
+            <div class="bg-circle-4 bg-circle"></div>
+        </header>
+        <!-- Content section 1-->
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="{{ url_for('static', filename='image/index-image/front-end.jpg')}}" alt="Imagem de uma tela com código e outra com o resultado visual" /></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">Curso de <p>Front-End...</h2>
+                            <p>Explore e se desenvolva em React.js, framework líder de mercado para Front-End. Conheça as tecnologias-base HTML, CSS e Javascript e vá do básico até o avançado no desenvolvimento de aplicativos e sites.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Content section 2-->
+        <section>
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="{{ url_for('static', filename='image/index-image/back-end.jpg')}}" alt="Duas mulheres trabalhando na criação de um software" /></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <h2 class="display-4">Curso de <p> Back-End...</h2>
+                            <p>Aprenda e desenvolva habilidades em Node.js, principal ambiente de execução Javascript para Back-End. Entenda fundamentos, conheça o sistema de módulos e frameworks, padrões arquiteturais com as melhores práticas em programação.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Content section 3-->
+        <section>
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="{{ url_for('static', filename='image/index-image/full-stack.jpg')}}" alt="imagem com todos os logotipos das tecnologias mais usadas no mercado" /></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">Curso de <p>Full-Stack Developer</h2>
+                            <p>Estude e desenvolva suas habilidades para iniciar sua carreira como Desenvolvedor Full Stack. Assista a cursos completos no seu ritmo, crie projetos práticos, participe de aulas ao vivo, mentorias individuais e assessorias de carreira, e adapte o aprendizado ao seu momento profissional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-{% block title %}{{ super() }} - Index{% endblock %}
+     {% endblock %}   
 
-{% block content %}
-
-<div class="jumbotron">
-<h1>One Click</h1>
-<p class="lead">The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content.</p>
-<p><a class="btn btn-lg btn-success" href="#" role="button">Inscreva-se hoje</a></p>
-</div>
-
-<div class="row marketing">
-<div class="col-lg-6">
-  <h4>Subtítulo</h4>
-  <p>The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout.</p>
-
-  <h4>Subtítulo</h4>
-  <p>The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout.</p>
-
-  <h4>Subtítulo</h4>
-  <p>The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout.</p>
-</div>
-
-<div class="col-lg-6">
-  <h4>Subtítulo</h4>
-  <p>The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout.</p>
-  <h4>Subtítulo</h4>
-  <p>The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout.</p>
-
-  <h4>Subtítulo</h4>
-  <p>The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout.</p>
-</div>
-</div>
-
-{% endblock %}
+ 
