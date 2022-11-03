@@ -1,14 +1,25 @@
-from app import db
+from enum import unique
+from re import T
+from flask_login import UserMixin
+from app import db, login_manager
+from flask_login import UserMixin
 
 
-class User(db.Model):
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
+
+
+class User(db.Model, UserMixin):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(30), unique=True)
-    password = db.Column(db.String(100))
-    name = db.Column(db.String)
-    email = db.Column(db.String(1000), unique=True)
+    username = db.Column(db.String(30), unique=True, nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String, nullable=False)
+    email = db.Column(db.String(1000), unique=True, nullable=False)
+
+    info = db.relationship('User_info', backref='info', lazy=True)
 
     def __init__(self, username, password, name, email):
         self.username = username
@@ -35,19 +46,32 @@ class User(db.Model):
         return "<User %r>" % self.username
 
 
-class Course(db.Model):
-    __tablename__ = "courses"
+class User_info(db.Model):
+    __tablename__ = "user_info"
 
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    age = db.Column(db.Integer, unique=False, nullable=False)
+    city = db.Column(db.Text, unique=False, nullable=False)
+    state = db.Column(db.Text, nullable=False)
+    adress = db.Column(db.Text, unique=False, nullable=False)
+    number = db.Column(db.Text, nullable=False)
+    profile_status = db.Column(db.Text, unique=False, nullable=False)
 
-    user = db.relationship('User', foreign_keys=user_id)
 
-    def __init__(self, content, user_id):
-        self.content = content
+    def __init__(self, user_id, age, city, state, adress, number, profile_status):
         self.user_id = user_id
+        self.age = age
+        self.city = city
+        self.state = state
+        self.adress = adress
+        self.number = number
+        self.profile_status = profile_status
 
-    def __repr__(self):
-        return "<Course %r>" % self.id
+        # db.create_all()
+        # db.session.commit()
+
+
+    #  def __repr__(self):
+    #      return "<User_info %r>" % self.id
 
