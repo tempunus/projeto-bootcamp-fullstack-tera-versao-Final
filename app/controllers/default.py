@@ -6,17 +6,14 @@ from app import app, db, bcrypt
 from app.models.tables import User, User_info
 from app.models.forms import LoginForm
 
-
-# @lm.user_loader
-# def load_user(id):
-#     return User.query.filter_by(id=id).first()
-    
+ 
 
 @app.route("/home")
 @app.route("/")
 def index():
     return render_template('index.html')
 
+####### LOGIN ########
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -36,12 +33,23 @@ def login():
             flash("Invalid login.")
     return render_template('login.html', form=form)
 
+###### Sessão #######
+@app.route("/logged")
+def logged():
+    if "logged_user" in session:
+        logged_user = session["logged_user"]
+        return render_template("index.html")
+    else:
+        return redirect(url_for("login"))   
+
+
+####### logout #######
 @app.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for("index"))    
 
-
+####### Cadastrar #######
 @app.route("/cadastro", methods=["GET", "POST"])
 def signup():
     if current_user.is_authenticated:
@@ -70,28 +78,9 @@ def register():
         return render_template("registerSuccess.html")
 
 
-
-
-@app.route("/logged")
-def logged():
-    if "logged_user" in session:
-        logged_user = session["logged_user"]
-        return render_template("index.html")
-    else:
-        return redirect(url_for("login"))    
-
-
-
-@app.route("/trilhas")
-def trails():
-    return render_template("trails.html")   
-
-@app.route("/profile")     
-def profile():
-    return render_template("profilePage.html")
-
-@app.route("/edit_user")
-def edit():
+###### informações ####
+@app.route("/user_details")
+def details():
     return render_template("user_informations.html")
 
 @app.route("/user_informations", methods=["POST", "GET"])
@@ -103,8 +92,6 @@ def user_informations():
     number = request.form.get("number")
     profile_status = request.form.get("profile_status")
 
-   
-    #new_info = User_info(age=age, city=city, state=state,  profile_status=profile_status)
     new_info = User_info(user_id=current_user.id, age=age, city=city, state=state, adress=adress, number=number, profile_status=profile_status)
 
     db.session.add(new_info)
@@ -113,6 +100,27 @@ def user_informations():
 
     return redirect(url_for("profile"))    
 
+####### editar ######
+
+@app.route("/edit_user", methods=["POST", "GET"])
+def edit_user():
+    user_edit = User_info.query.filter_by(id=request.form.get('id')).first()
+    if request.method == 'POST':
+        if user_edit:
+            age = request.form("age")
+            city = request.form("city")
+            state = request.form("state")
+            adress = request.form("adress")
+            number = request.form("number")
+            profile_status = request.form("profile_status")
+                
+            user_edit = User_info(age=age, city=city, state=state, adress=adress, number=number, profile_status=profile_status)
+
+            db.session.add(user_edit)
+            db.session.commit() 
+
+        return redirect(url_for('profile'))
+    return render_template("edit_user.html")    
 
 # @app.route("/test")
 # def test():
@@ -125,4 +133,11 @@ def user_informations():
 
 
 
+@app.route("/trilhas")
+def trails():
+    return render_template("trails.html")   
+
+@app.route("/profile")     
+def profile():
+    return render_template("profilePage.html")
 

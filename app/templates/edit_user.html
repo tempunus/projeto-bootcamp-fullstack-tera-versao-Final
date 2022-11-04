@@ -1,0 +1,70 @@
+
+  {% extends 'base.html' %}
+  {% block cadastro %}
+        <!-- Header-->
+        <header class="masthead text-center text-white">
+            <div class="masthead-content">
+                <div class="container px-5">
+                    <div class="container">
+                        <div class="row">
+                          <div class="col-lg-10 col-xl-9 mx-auto">
+                            <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+                              <div class="card-img-left d-none d-md-flex">
+                                <!-- Background image for card set in CSS! -->
+                              </div>
+                              <div class="card-body p-4 p-sm-5">
+                                <h5 class="card-title text-center mb-5 fw-light fs-5">Cadastro</h5>
+                                <form action="user_informations" method="post">
+                    
+                                  <div class="form-floating mb-3">
+                                    <input type="nunber" class="form-control" id="floatingInputUsername" name="age" placeholder="myusername" >
+                                    <label for="floatingInputUsername">idade</label>
+                                  </div>
+
+                                  <div class="form-floating mb-3">
+                                    <input type="str" class="form-control" id="floatingInputEmail" name="city" placeholder="Cidade" >
+                                    <label for="floatingInputEmail">Cidade</label>
+                                  </div>
+                    
+                                  <div class="form-floating mb-3">
+                                    <input type="str" class="form-control" id="floatingInputEmail" name="state" placeholder="Estado">
+                                    <label for="floatingInputEmail">Estado</label>
+                                  </div>
+                    
+                                  <hr>
+                    
+                                  <div class="form-floating mb-3">
+                                    <input type="str" class="form-control" id="floatingPassword" name="adress" placeholder="Endereço">
+                                    <label for="floatingPassword">Endereço</label>
+                                  </div>
+                    
+                                  <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="floatingPasswordConfirm" name="number" placeholder="Numero">
+                                    <label for="floatingPasswordConfirm">Numero</label>
+                                  </div>
+                    
+                                  <div class="form-floating mb-3">
+                                    <input type="text-area" class="form-control" id="floatingInputEmail" name="profile_status" placeholder="status">
+                                    <label for="floatingInputEmail">Status</label>
+                                  </div>   
+
+                                  <div class="d-grid mb-2">
+                                    <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Salvar</button>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+              
+                </div>
+            </div>
+            <div class="bg-circle-1 bg-circle"></div>
+            <div class="bg-circle-2 bg-circle"></div>
+            <div class="bg-circle-3 bg-circle"></div>
+            <div class="bg-circle-4 bg-circle"></div>
+
+
+        </header>
+ {% endblock %}
