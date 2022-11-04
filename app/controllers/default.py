@@ -9,7 +9,6 @@ from app.models.forms import LoginForm
  
 
 @app.route("/home")
-@app.route("/")
 def index():
     return render_template('index.html')
 
