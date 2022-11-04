@@ -9,6 +9,7 @@ from app.models.forms import LoginForm
  
 
 @app.route("/home")
+@app.route("/")
 def index():
     return render_template('index.html')
 
@@ -120,16 +121,6 @@ def edit_user():
 
         return redirect(url_for('profile'))
     return render_template("edit_user.html")    
-
-# @app.route("/test")
-# def test():
-#     u_id = current_user.id
-#     i = User_info( u_id,"22", "São Paulo", "SP", "Rua 1", "2", "OK")
-#     print(i)
-#     db.session.add(i)
-#     db.session.commit()
-#     return "ok"
-
 
 
 @app.route("/trilhas")
