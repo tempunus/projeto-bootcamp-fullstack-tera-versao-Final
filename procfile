@@ -1,1 +1,2 @@
-web: gunicorn run.wsgi
+
+web: gunicorn run:manager
