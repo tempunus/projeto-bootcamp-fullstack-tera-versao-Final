@@ -6,7 +6,6 @@ from app import app, db, bcrypt
 from app.models.tables import User, User_info
 from app.models.forms import LoginForm
 
- 
 
 @app.route("/home")
 @app.route("/")
@@ -68,66 +67,70 @@ def register():
         encrypted_password = bcrypt.generate_password_hash(password).decode("utf-8")
 
         new_user = User(username=username, password=encrypted_password, name=name, email=email)  
-        print(new_user)
 
 
         db.session.add(new_user)
         db.session.commit() 
 
-        
         return render_template("registerSuccess.html")
 
 
-###### informações ####
-@app.route("/user_details")
-def details():
-    return render_template("user_informations.html")
-
-@app.route("/user_informations", methods=["POST", "GET"])
-def user_informations():
-    age = request.form.get("age")
-    city = request.form.get("city")
-    state = request.form.get("state")
-    adress = request.form.get("adress")
-    number = request.form.get("number")
-    profile_status = request.form.get("profile_status")
-
-    new_info = User_info(user_id=current_user.id, age=age, city=city, state=state, adress=adress, number=number, profile_status=profile_status)
-
-    db.session.add(new_info)
-    db.session.commit() 
-
-
-    return redirect(url_for("profile"))    
-
-####### editar ######
+###### editar informações ####
 
 @app.route("/edit_user", methods=["POST", "GET"])
 def edit_user():
-    user_edit = User_info.query.filter_by(id=request.form.get('id')).first()
+
+    user_id = current_user.id
+    user_informations = User_info.query.filter_by(user_id=user_id).first()
     if request.method == 'POST':
-        if user_edit:
-            age = request.form("age")
-            city = request.form("city")
-            state = request.form("state")
-            adress = request.form("adress")
-            number = request.form("number")
-            profile_status = request.form("profile_status")
-                
-            user_edit = User_info(age=age, city=city, state=state, adress=adress, number=number, profile_status=profile_status)
+        if user_informations:
+            db.session.delete(user_informations)
+            user_informations = User_info(
+                user_id = user_id,
+                age = request.form.get("age"),
+                city = request.form.get("city"),
+                state = request.form.get("state"),
+                adress = request.form.get("adress"),
+                number = request.form.get("number"),
+                profile_status = request.form.get("profile_status")
+            )
+            db.session.add(user_informations)
+            db.session.commit()
+            
 
-            db.session.add(user_edit)
-            db.session.commit() 
+        else:
+            
 
-        return redirect(url_for('profile'))
-    return render_template("edit_user.html")    
+            user_informations = User_info(
+                user_id = user_id,
+                age = request.form.get("age"),
+                city = request.form.get("city"),
+                state = request.form.get("state"),
+                adress = request.form.get("adress"),
+                number = request.form.get("number"),
+                profile_status = request.form.get("profile_status")
+            )
+
+            db.session.add(user_informations)
+            db.session.commit()
+        
+        return redirect( url_for('profile'))    
+       
+    return render_template("user_informations.html")    
+         
 
 
 @app.route("/trilhas")
 def trails():
     return render_template("trails.html")   
 
+@app.route("/course_template")
+def course_template():
+    return render_template("courses/courseTemplate.html")    
+
 @app.route("/profile")     
 def profile():
-    return render_template("profilePage.html")
+    id = current_user.id
+    infos = User_info.query.filter_by(user_id=id)
+    return render_template("profilePage.html", infos=infos)
 

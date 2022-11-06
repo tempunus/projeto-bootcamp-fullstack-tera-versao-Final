@@ -68,8 +68,8 @@ class User_info(db.Model):
         self.number = number
         self.profile_status = profile_status
 
-        # db.create_all()
-        # db.session.commit()
+        db.create_all()
+        db.session.commit()
 
 
     #  def __repr__(self):

@@ -28,6 +28,7 @@
                   <p class="mb-0"><strong class="pr-1">Username:</strong>{{ current_user.username }}</p>
                   <p class="mb-0"><strong class="pr-1">ID do Estudante:</strong>{{ current_user.id }}</p>
                   <p class="mb-0"><strong class="pr-1">Email:</strong>{{ current_user.email }}</p>
+                  <a class="mb-0 pr-1" href="{{ url_for('index')}}">Home</a>
                 </div>
               </div>
             </div>
@@ -37,35 +38,38 @@
                   <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Informações Gerais</h3>
                 </div>
                 <div class="card-body pt-0">
-                   
-                  <table class="table table-bordered">
-                    <tr>
-                      <th width="30%">idade</th>
-                      <td width="2%">:</td>
-                      <td>{{ current_user.info.age }}</td>
 
-                    </tr>
-                    <tr>
-                      <th width="30%">Cidade</th>
-                      <td width="2%">:</td>
-                      <td>Fortaleza</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Estado</th>
-                      <td width="2%">:</td>
-                      <td>Ceará</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Endereço</th>
-                      <td width="2%">:</td>
-                      <td>Centro</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Numero</th>
-                      <td width="2%">:</td>
-                      <td>250</td>
-                    </tr>
-                  </table>
+                  {%for user in infos%}
+                    <table class="table table-bordered">
+                      <tr>
+                        <th width="30%">idade</th>
+                        <td width="2%">:</td>
+                        <td>{{user.age}}</td>
+
+                      </tr>
+                      <tr>
+                        <th width="30%">Cidade</th>
+                        <td width="2%">:</td>
+                        <td>{{user.city}}</td>
+                      </tr>
+                      <tr>
+                        <th width="30%">Estado</th>
+                        <td width="2%">:</td>
+                        <td>{{user.state}}</td>
+                      </tr>
+                      <tr>
+                        <th width="30%">Endereço</th>
+                        <td width="2%">:</td>
+                        <td>{{user.adress}}</td>
+                      </tr>
+                      <tr>
+                        <th width="30%">Numero</th>
+                        <td width="2%">:</td>
+                        <td>{{user.number}}</td>
+                      </tr>
+                    </table>
+
+                    {%endfor%}
 
                   <div><a href="{{ url_for('edit_user')}}">Editar informações</a></div>
                  
@@ -76,9 +80,11 @@
                 <div class="card-header bg-transparent border-0">
                   <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Status</h3>
                 </div>
+                {%for user in infos%}
                 <div class="card-body pt-0">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>{{user.profile_status}}</p>
                 </div>
+                {%endfor%}
               </div>
             </div>
           </div>

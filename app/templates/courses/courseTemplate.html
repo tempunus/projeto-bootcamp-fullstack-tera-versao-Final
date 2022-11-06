@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" courseContent="IE=edge">
+    <meta name="viewport" courseContent="width=device-width, initial-scale=1.0">
+    <title>Module 1: HTML</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/coursePage.css')}}">
+</head>
+<body>
+    
+    <main>
+        <nav class="pagesProgress">            
+                <div class="container">
+                    <div class="progress-container">
+                    <div class="progress" id="progress"></div>
+                    <div class="circle active">0</div>
+                    <div class="circle" onclick="openPage('1','courseContent')">1</div>
+                    <div class="circle" onclick="openPage('2','courseContent')">2</div>
+                    <div class="circle" onclick="openPage('3','courseContent')">3</div>
+                    <div class="circle" onclick="openPage('4','courseContent')">4</div>
+                </div>
+            </div>            
+        </nav>
+
+        
+        <section id="courseContent">
+            <div class="initialPage">
+            <h1>Voce está prestes a iniciar seu curso</h1>
+            <h3>procure um lugar confortével, pegue papel, caneta e bons estudos</h3>
+            </div>
+           
+        </section>
+
+
+       
+        <footer>
+           <a href="{{ url_for('trails')}}"><button type="button" id="prev" class="btn-prev">Voltar</button></a> 
+            <button type="button" id="next" class="btn-hover" onclick="update(0)">Avançar</button>
+        </footer>
+        
+    </main>
+<script src="{{ url_for('static', filename='js/coursePage.js')}}"></script>    
+</body>
+</html>

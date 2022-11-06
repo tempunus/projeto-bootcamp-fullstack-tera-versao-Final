@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #343a40;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pageView {
+    width: 1200px;
+    height: 100vh;
+    padding: 30px;
+    margin: 30px;
+}
+
+h1 {
+    padding-top: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* ===========progress bar=========*/
+.workload {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.workload h3 {
+    width: 50%;
+
+}
+
+.workload p {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    padding-right: 30px;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    color: #ff5757;
+} 
+
+.progressBar {
+    width: 100%;
+    height: 25px;
+    border-radius: 25px;
+    background-color: rgb(55, 55, 60);
+    margin-top: 20px;
+    box-shadow: rgb(0 0 0 / 45%) 0px 0px 15px;
+}
+
+.progressBar:hover { 
+    border: 1px solid rgb(55, 55, 60);  
+    box-shadow: rgb(0 0 0 / 45%) 0px 0px 20px;
+}
+
+.percent {
+    width: 11%;
+    height: 100%;
+    background-image: linear-gradient(to bottom right, #dd363e, #e84246, #f44d4f, #ff5757, #ff6160, #ff6c68, #ff7671);
+    border-radius: 25px;
+}
+
+.modulesContainer {
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+}
+
+
+
+.modules {
+    width: 100%;
+    height: 180px;
+    background-color: rgb(55, 55, 60);
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 45%) 0px 0px 15px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.modules:hover {   
+    box-shadow: rgb(0 0 0 / 45%) 0px 0px 20px;
+}
+
+.moduleTitle{
+    width: 100%;
+    height: 75%;
+    padding: 25px;
+}
+
+.moduleProgress {
+    display: flex;
+    flex-direction: row;
+}
+
+.moduleWorkload {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 25px;
+}
+
+.moduleWorkload p {
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
+.moduleWorkload span {
+    font-weight: lighter;
+    font-size: 0.8rem;
+    padding-top:  6px;
+    padding-left: 5px;
+}
+
+.moduleEvo {
+    width: 50%;
+    display: flex;
+    justify-content: end;  
+    font-weight: bold;
+    padding-right: 25px;
+    color: rgb(2, 188, 119);
+}
+
+
+
+
