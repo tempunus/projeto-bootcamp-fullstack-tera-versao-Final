@@ -98,6 +98,8 @@ def register():
 
 @app.route("/edit_user", methods=["POST", "GET"])
 def edit_user():
+    if not current_user.is_authenticated:
+         return redirect( url_for('login'))
 
     user_id = current_user.id
     user_informations = User_info.query.filter_by(user_id=user_id).first()
@@ -140,15 +142,21 @@ def edit_user():
 
 
 @app.route("/trilhas")
-def trails():
+def trails():    
+    if not current_user.is_authenticated:
+         return redirect( url_for('login'))
     return render_template("trails.html")   
 
 @app.route("/course_template")
 def course_template():
+    if not current_user.is_authenticated:
+         return redirect( url_for('login'))
     return render_template("courses/courseTemplate.html")    
 
 @app.route("/profile")     
 def profile():
+    if not current_user.is_authenticated:
+         return redirect( url_for('login'))
     id = current_user.id
     infos = User_info.query.filter_by(user_id=id)
     return render_template("profilePage.html", infos=infos)
