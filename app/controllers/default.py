@@ -4,7 +4,7 @@ from app import app, db, bcrypt
 
 
 from app.models.tables import User, User_info
-from app.models.forms import LoginForm
+from app.models.forms import LoginForm, RegisterForm
 
 
 @app.route("/home")
@@ -19,6 +19,7 @@ def login():
     if current_user.is_authenticated:
         return redirect( url_for('logged'))
     form = LoginForm()
+    print (form)
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         logged_user = form.username.data
@@ -26,10 +27,9 @@ def login():
 
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
-            flash("Logged in.")
             return redirect(url_for("logged"))
         else:
-            flash("Invalid login.")
+            flash(f'Erro ao logar no usuário {form.username.data}', category='danger')
     return render_template('login.html', form=form)
 
 ###### Sessão #######
@@ -49,31 +49,50 @@ def logout():
     return redirect(url_for("index"))    
 
 ####### Cadastrar #######
-@app.route("/cadastro", methods=["GET", "POST"])
-def signup():
-    if current_user.is_authenticated:
-        return redirect( url_for('logged'))
-    return render_template("cadastro.html")
+# @app.route("/cadastro", methods=["GET", "POST"])
+# def signup():
+#     if current_user.is_authenticated:
+#         return redirect( url_for('logged'))
+#     return render_template("cadastro.html")
 
-@app.route("/register", methods=["POST", "GET"])
+# @app.route("/register", methods=["POST", "GET"])
+# def register():
+#         if current_user.is_authenticated:
+#             return redirect( url_for('logged'))
+#         username=request.form.get("username")
+#         password=request.form.get("password")
+#         name=request.form.get("name")
+#         email=request.form.get("email")
+
+#         encrypted_password = bcrypt.generate_password_hash(password).decode("utf-8")
+
+#         new_user = User(username=username, password=encrypted_password, name=name, email=email)  
+
+
+#         db.session.add(new_user)
+#         db.session.commit() 
+
+#         return render_template("registerSuccess.html")
+
+
+@app.route('/register', methods=["POST", "GET"])
 def register():
-        if current_user.is_authenticated:
-            return redirect( url_for('logged'))
-        username=request.form.get("username")
-        password=request.form.get("password")
-        name=request.form.get("name")
-        email=request.form.get("email")
+    form = RegisterForm() 
+    if current_user.is_authenticated:
+         return redirect( url_for('logged'))
+    if form.validate_on_submit(): 
 
-        encrypted_password = bcrypt.generate_password_hash(password).decode("utf-8")
+        encrypted_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
 
-        new_user = User(username=username, password=encrypted_password, name=name, email=email)  
-
+        new_user = User(username=form.username.data, password=encrypted_password, name=form.name.data, email=form.email.data)  
 
         db.session.add(new_user)
         db.session.commit() 
 
-        return render_template("registerSuccess.html")
+        flash(f'Conta criada com socesso para o usuário {form.username.data}', category='success')
 
+        return redirect(url_for('login'))
+    return render_template('cadastro.html', form=form)
 
 ###### editar informações ####
 

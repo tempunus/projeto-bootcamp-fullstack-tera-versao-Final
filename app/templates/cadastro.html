@@ -1,7 +1,77 @@
 
   {% extends 'base.html' %}
   {% block cadastro %}
-        <!-- Header-->
+
+    <div class="container w-50 vh-100 pt-5">
+      <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <fieldset>
+          <legend>Cadastre-se agora</legend>
+          <div class="form-group">
+            {{form.username.label(class="form-control-label")}} 
+            {%if form.username.errors%}
+            {{form.username(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.username.errors%}
+                <span>{{error}}</span>
+              {%endfor%}
+              {%else%}
+              {{form.username(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+          <div class="form-group">
+            {{form.name.label(class="form-control-label")}} 
+            {%if form.name.errors%}
+            {{form.name(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.name.errors%}
+                <span>{{error}}</span>
+              {%endfor%}
+              {%else%}
+              {{form.name(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+          <div class="form-group">
+            {{form.email.label(class="form-control-label")}} 
+            {%if form.email.errors%}
+            {{form.email(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.email.errors%}
+                <span>{{error}}</span>
+              {%endfor%}
+              {%else%}
+              {{form.email(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+          <div class="form-group">
+            {{form.password.label(class="form-control-label")}} 
+            {%if form.password.errors%}
+            {{form.password(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.password.errors%}
+                <span>{{error}}</span>
+              {%endfor%}
+              {%else%}
+              {{form.password(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+          <div class="form-group">
+            {{form.confirm_password.label(class="form-control-label")}} 
+            {%if form.confirm_password.errors%}
+            {{form.confirm_password(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.confirm_password.errors%}
+                <span>{{error}}</span>
+              {%endfor%}
+              {%else%}
+              {{form.confirm_password(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+        </fieldset>
+        <div class="field-group mt-3">
+          {{form.submit(class='btn btn-primary')}}
+
+        </div>
+      </form>
+
+    </div>
+
+        <!-- Header
         <header class="masthead text-center text-white">
             <div class="masthead-content">
                 <div class="container px-5">
@@ -10,7 +80,7 @@
                           <div class="col-lg-10 col-xl-9 mx-auto">
                             <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
                               <div class="card-img-left d-none d-md-flex">
-                                <!-- Background image for card set in CSS! -->
+                                <!-- Background image for card set in CSS! 
                               </div>
                               <div class="card-body p-4 p-sm-5">
                                 <h5 class="card-title text-center mb-5 fw-light fs-5">Cadastro</h5>
@@ -22,7 +92,7 @@
                                   </div>
 
                                   <div class="form-floating mb-3">
-                                    <input type="str" class="form-control" id="floatingInputEmail" name="name" placeholder="nome" required autofocus>
+                                    <input type="str" class="form-control" id="floatingInputName" name="name" placeholder="nome">
                                     <label for="floatingInputEmail">Nome</label>
                                   </div>
                     
@@ -34,17 +104,17 @@
                                   <hr>
                     
                                   <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="********">
+                                    <input type="password" class="form-control" id="floatingPassword" name="password">
                                     <label for="floatingPassword">Senha</label>
                                   </div>
                     
                                   <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPasswordConfirm" placeholder="********">
+                                    <input type="password" class="form-control" id="floatingPasswordConfirm">
                                     <label for="floatingPasswordConfirm">Confirme a  Senha</label>
                                   </div>
                     
                                   <div class="d-grid mb-2">
-                                    <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Cadastro</button>
+                                    <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit" onsubmit="validatePassword()">Cadastro</button>
                                   </div>
                     
                                   <a class="d-block text-center mt-2 small" href="{{ url_for('login')}}">já possui conta? Entrar</a>
@@ -79,4 +149,16 @@
 
 
         </header>
+        <script>
+              function validatePassword() {
+                var password = document.getElementById("floatingPassword").value;
+                var confirm_password = document.getElementById("floatingPasswordConfirm").value;
+                console.log(password, confirm_password)
+                if (password != confirm_password) {
+                    alert("As senhas precisam ser iguais");
+                    return false;
+                }
+                return true;
+            }
+        </script>-->
  {% endblock %}

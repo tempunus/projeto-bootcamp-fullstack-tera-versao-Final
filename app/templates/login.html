@@ -1,6 +1,44 @@
 {% extends 'base.html' %}
 {% block login %}
-        <!-- Header-->
+
+    <div class="container w-50 vh-100 pt-5">
+      <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <fieldset>
+          <legend>Cadastre-se agora</legend>
+          <div class="form-group">
+            {{form.username.label(class="form-control-label")}} 
+            {%if form.username.errors%}
+            {{form.username(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.username.errors%}
+                <span>{{error}}</span>
+              {%endfor%}
+              {%else%}
+              {{form.username(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+          <div class="form-group">
+            {{form.password.label(class="form-control-label")}} 
+            {%if form.password.errors%}
+            {{form.password(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.password.errors%}
+                <span>{{error}}</span>
+              {%endfor%}
+              {%else%}
+              {{form.password(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+        </fieldset>
+        <div class="field-group mt-3">
+          {{form.submit(class='btn btn-primary')}}
+
+        </div>
+      </form>
+
+    </div>
+
+
+        <!-- Header
         <header class="masthead text-center text-white">
             <div class="masthead-content">
                 <div class="container px-5">
@@ -55,6 +93,6 @@
             <div class="bg-circle-4 bg-circle"></div>
 
 
-        </header>
+        </header>-->
 
   {% endblock%}      

@@ -390,7 +390,7 @@ textarea {
 fieldset {
   min-width: 0;
   padding: 0;
-  margin: 0;
+  margin: 50px;
   border: 0;
 }
 
@@ -401,6 +401,8 @@ legend {
   margin-bottom: 0.5rem;
   font-size: calc(1.275rem + 0.3vw);
   line-height: inherit;
+  padding-top: 500px !important;
+  
 }
 @media (min-width: 1200px) {
   legend {
@@ -449,6 +451,7 @@ legend + * {
 ::-webkit-file-upload-button {
   font: inherit;
 }
+
 
 ::file-selector-button {
   font: inherit;
@@ -11406,4 +11409,8 @@ body {
 
   label{
     color: #000 !important;
+  }
+
+  form {
+    margin-top: 100px !important;
   }
